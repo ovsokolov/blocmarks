@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blocmarks</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+        <%= render 'layouts/header' %>
+        <% if flash[:notice] %>
+           <div class="alert alert-success">
+             <button type="button" class="close" data-dismiss="alert">&times;</button>
+             <%= flash[:notice] %>
+           </div>
+         <% elsif flash.now[:alert] %>
+           <div class="alert alert-danger">
+             <button type="button" class="close" data-dismiss="alert">&times;</button>
+             <%= flash.now[:alert] %>
+           </div>
+         <% elsif flash[:alert] %>
+           <div class="alert alert-warning">
+             <button type="button" class="close" data-dismiss="alert">&times;</button>
+             <%= flash[:alert] %>
+           </div>
+         <% end %>
+        <%= yield %>
+    </div>
+  </body>
+</html>
