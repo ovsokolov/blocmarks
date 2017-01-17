@@ -1,0 +1,9 @@
+<tr>
+  <td><%= link_to topic.title, topic %></td>
+<tr>
+  <td colspan="4">
+    <table>
+      <%= render :partial => "bookmarks/bookmark", :collection => topic.bookmarks %>
+    </table>
+  </td>
+</tr>
