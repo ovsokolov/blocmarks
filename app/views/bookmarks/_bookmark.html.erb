@@ -1,5 +1,5 @@
 <tr>
   <td>
-    <%= bookmark.url %>
+    <%= link_to bookmark.url, topic_bookmark_path(bookmark.topic, bookmark) %>
   </td>
 </tr>

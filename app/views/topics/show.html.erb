@@ -8,5 +8,6 @@
   <%= render :partial => "bookmarks/bookmark", :collection => @topic.bookmarks %>
 </table>
 <%= link_to 'Edit', edit_topic_path(@topic), class: 'btn btn-success'  %>
-<%= link_to 'Destroy', @topic, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %>
+<%= link_to 'Delete', @topic, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %>
+<%= link_to 'New Bookmark', new_topic_bookmark_path(@topic), class: 'btn btn-success'  %>
 <%= link_to 'Back', topics_path, class: 'btn btn-success'  %>
