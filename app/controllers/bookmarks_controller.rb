@@ -54,7 +54,7 @@ class BookmarksController < ApplicationController
   # DELETE /bookmarks/1
   # DELETE /bookmarks/1.json
   def destroy
-    @bookmark.destroy
+    #@bookmark.destroy
     flash[:notice] = "Bookmark deleted."
     redirect_to topics_path
   end
