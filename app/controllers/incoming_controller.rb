@@ -46,6 +46,7 @@ class IncomingController < ApplicationController
     # Assuming all went well.
     bookmark = Bookmark.new(
       :topic_id =>   topic.id,
+      :user_id => user.id,
       :url =>  email_bookmark.strip
     )
     bookmark.save!

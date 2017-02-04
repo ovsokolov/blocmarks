@@ -27,8 +27,10 @@ class BookmarksController < ApplicationController
   # POST /bookmarks
   # POST /bookmarks.json
   def create
+    authorize @bookmark
     @topic = Topic.find(params[:topic_id])
     bookmark = @topic.bookmarks.new(bookmark_params)
+    bookmark.user = current_user
 
     if bookmark.save
       flash[:notice] = "Bookmark saved successfully."
@@ -42,6 +44,7 @@ class BookmarksController < ApplicationController
   # PATCH/PUT /bookmarks/1
   # PATCH/PUT /bookmarks/1.json
   def update
+    authorize @bookmark
     if @bookmark.update(bookmark_params)
       flash[:notice] = "Bookmark updated successfully."
       redirect_to topics_path
@@ -54,6 +57,7 @@ class BookmarksController < ApplicationController
   # DELETE /bookmarks/1
   # DELETE /bookmarks/1.json
   def destroy
+    authorize @bookmark
     @bookmark.destroy
     flash[:notice] = "Bookmark deleted."
     redirect_to topics_path
