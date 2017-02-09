@@ -27,10 +27,10 @@ class BookmarksController < ApplicationController
   # POST /bookmarks
   # POST /bookmarks.json
   def create
-    authorize @bookmark
     @topic = Topic.find(params[:topic_id])
     bookmark = @topic.bookmarks.new(bookmark_params)
     bookmark.user = current_user
+    authorize bookmark
 
     if bookmark.save
       flash[:notice] = "Bookmark saved successfully."
