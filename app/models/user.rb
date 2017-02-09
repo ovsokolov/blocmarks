@@ -6,4 +6,9 @@ class User < ApplicationRecord
 
   has_many :topics
   has_many :bookmarks
+  has_many :likes, dependent: :destroy
+
+  def user_likes(bookmark)
+    likes.where(bookmark_id: bookmark.id).first
+  end
 end
